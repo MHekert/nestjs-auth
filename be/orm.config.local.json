@@ -1,0 +1,10 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 6544,
+  "username": "postgres",
+  "password": "postgres",
+  "database": "postgres",
+  "migrations": ["migrations/**/*{.ts,.js}"],
+  "entities": ["src/data-layer/entities/**/*.entity{.ts,.js}"]
+}

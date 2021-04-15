@@ -1,0 +1,105 @@
+{
+  "info": {
+    "_postman_id": "72c7413e-d30e-4f09-a1e8-9561f113cfa5",
+    "name": "nestjs-auth-auth0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "auth-me",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth0_id_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/auth/me",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["auth", "me"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "offline_access openid profile email",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "{{auth0_url}}/oauth/token?grant_type=authorization_code&",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "{{auth0_url}}/authorize?audience={{auth0_audience_url}}",
+        "type": "string"
+      },
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code_with_pkce",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{auth0_client_secret}}",
+        "type": "string"
+      },
+      {
+        "key": "clientId",
+        "value": "{{auth0_client_id}}",
+        "type": "string"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://www.postman.com",
+        "type": "string"
+      },
+      {
+        "key": "tokenName",
+        "value": "auth0-token",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

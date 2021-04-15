@@ -1,0 +1,110 @@
+{
+  "info": {
+    "_postman_id": "c4b6a084-fc43-4d06-b070-195480caae88",
+    "name": "nestjs-auth-cognito",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "auth-me",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{cognito_id_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/auth/me",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["auth", "me"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code_with_pkce",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "{{cognito_url}}/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "useBrowser",
+        "value": false,
+        "type": "boolean"
+      },
+      {
+        "key": "scope",
+        "value": "aws.cognito.signin.user.admin email openid profile",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://www.postman.com",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "{{cognito_url}}/login",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{cognito_client_secret}}",
+        "type": "string"
+      },
+      {
+        "key": "clientId",
+        "value": "{{cognito_client_id}}",
+        "type": "string"
+      },
+      {
+        "key": "tokenName",
+        "value": "cognito_token",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}
